@@ -11,7 +11,8 @@ const app = express();
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
-mongoose.connect("mongodb+srv://admin-olatunjiweber:EeCPIJB7dWKqeTx8@cluster0.eqdclwy.mongodb.net/userDB", {useNewUrlParser: true});
+//Problem should e somewhere here.....
+mongoose.connect("mongodb+srv://"+ process.env.DB_USR +":"+ process.env.DB_PS+" @cluster0.eqdclwy.mongodb.net/"+process.env.DB+"", {useNewUrlParser: true});
 
 const userSchema = new mongoose.Schema({
     email: String,
